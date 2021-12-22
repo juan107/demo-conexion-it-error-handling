@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "3d07156e-6882-4a44-b126-dd97fb564f86",
+		"name": "ConexiónIT-bolivar-core-error-handling-starter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "400 - Bad Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idInmobiliaria\": 123456789\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/conexion-it/api/v1/solicitud",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"conexion-it",
+						"api",
+						"v1",
+						"solicitud"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "500 - Error Controlado",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 200,\r\n    \"valorCanonArrendamiento\": 6666666,\r\n    \"idInmobiliaria\": 123456789\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/conexion-it/api/v1/solicitud",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"conexion-it",
+						"api",
+						"v1",
+						"solicitud"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "500 - Error NO Controlado",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valorCanonArrendamiento\": 12345678911111111111,\r\n    \"idInmobiliaria\": 123456789\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/conexion-it/api/v1/solicitud",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"conexion-it",
+						"api",
+						"v1",
+						"solicitud"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "200 - OK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"valorCanonArrendamiento\": 1234567891111111111,\r\n    \"idInmobiliaria\": 123456789\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/conexion-it/api/v1/solicitud",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"conexion-it",
+						"api",
+						"v1",
+						"solicitud"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

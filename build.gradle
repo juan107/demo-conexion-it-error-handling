@@ -1,0 +1,58 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.1'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.bolivar.solicitud'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+	mavenLocal {
+		url "https://segurosbolivar.jfrog.io/artifactory/commons-gradle-bolivar-core-error-handling-starter-local/"
+		credentials {
+			username "${artifactory_user}"
+			password "${artifactory_password}"
+		}
+	}
+	mavenLocal {
+		url "https://segurosbolivar.jfrog.io/artifactory/commons-gradle-bolivar-core-api-doc-starter-local/"
+		credentials {
+			username "${artifactory_user}"
+			password "${artifactory_password}"
+		}
+	}
+
+	maven {
+		url "https://segurosbolivar.jfrog.io/artifactory/jcenter"
+		credentials {
+			username "${artifactory_user}"
+			password "${artifactory_password}"
+		}
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	compile(group: 'com.bolivar.error.handling', name: 'bolivar-core-error-handling-starter', version: '1.0.1.RELEASE')
+	compile(group: 'com.bolivar.api.doc', name: 'bolivar-core-api-doc-starter', version: '1.0.0.RELEASE')
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.3.5.RELEASE'
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+	useJUnitPlatform()
+}

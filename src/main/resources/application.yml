@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: /conexion-it/api/v1
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Colombia2022
+    url: jdbc:mysql://flowable-el-libertador.czvb1oeo64qt.us-east-1.rds.amazonaws.com:3306/conexion-it?enabledTLSProtocols=TLSv1.2&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetime
+    username: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+springdoc:
+  api-docs:
+    path: /srv-gestion-solicitud-openapi
+    
+server:
+  port : 8082
+  servlet:
+    context-path: /conexion-it/api/v1
+
+info:
+  status: UP
+
+bolivar:
+  api:
+    doc:
+      apiVersion: 1.0
+      apiDescription: Administración de Datos de la Solicitud
+      apiTitle: Servicio Atómico Administración de Solicitudes
+      apiServers:
+        -
+          url: urldev/gestion-enrolamiento
+          description: DEV
+        -
+          url: urlstage/gestion-enrolamiento
+          description: STAGE
+        -
+          url: urlprod/gestion-enrolamiento
+          description: PROD
